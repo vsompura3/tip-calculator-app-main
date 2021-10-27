@@ -26,42 +26,74 @@
 	<body>
 		<!-- Container -->
 		<div class="container">
+			<!-- Header -->
 			<header class="header">
 				<img src="./images/logo.svg" alt="logo" class="logo" />
 			</header>
+
+			<!-- App -->
 			<main class="app">
-				<div class="bill-section">
-					<label for="bill-amount">Bill</label>
-					<input type="number" name="bill-amount" id="bill-amount" required placeholder="0" />
-					<img src="./images/icon-dollar.svg" alt="dollar-sign" class="bill-sign" />
-				</div>
-				<div class="tip-section">
-					<p>Select Tip %</p>
+				<!-- bill -->
+				<section class="section bill">
+					<label for="bill-amount" class="form__label bill__label">
+						<p>Bill</p>
+						<span>can't be zero</span>
+					</label>
+					<div class="form bill__form">
+						<input
+							type="number"
+							name="bill-amount"
+							id="bill-amount"
+							class="bill__input form__input"
+							placeholder="0"
+							required
+						/>
+						<img src="./images/icon-dollar.svg" alt="dollar-sign" class="form__img bill-sign" />
+					</div>
+				</section>
+
+				<!-- tip -->
+				<section class="section tip">
+					<p class="form__label">Select Tip %</p>
 					<div class="tips">
-						<button type="button" class="tip" data-tip="5">5%</button>
-						<button type="button" class="tip" data-tip="10">10%</button>
-						<button type="button" class="tip" data-tip="15">15%</button>
-						<button type="button" class="tip" data-tip="20">20%</button>
-						<button type="button" class="tip" data-tip="50">50%</button>
+						<button type="button" class="btn tip-btn" data-tip="5">5%</button>
+						<button type="button" class="btn tip-btn" data-tip="10">10%</button>
+						<button type="button" class="btn tip-btn" data-tip="15">15%</button>
+						<button type="button" class="btn tip-btn" data-tip="25">25%</button>
+						<button type="button" class="btn tip-btn" data-tip="50">50%</button>
 						<input type="number" name="custom-tip" id="custom-tip" placeholder="Custom" />
 					</div>
-				</div>
-				<div class="people-section">
-					<div class="people">
-						<label for="number-of-people">Number of People</label>
-						<p class="zero">Can't be zero</p>
+				</section>
+
+				<!-- people -->
+				<section class="section people">
+					<label for="people-amount" class="form__label people__label">
+						<p>Number of People</p>
+						<span>can't be zero</span>
+					</label>
+					<div class="form people__form">
+						<input
+							type="number"
+							name="people-number"
+							id="people-number"
+							class="people__input form__input"
+							placeholder="0"
+							required
+						/>
+						<img src="./images/icon-person.svg" alt="person-sign" class="form__img people-sign" />
 					</div>
-					<input
-						type="number"
-						name="number-of-people"
-						id="number-of-people"
-						required
-						placeholder="0"
-					/>
-				</div>
-				<div class="calculator-section">Calculator</div>
+				</section>
+
+				<!-- calculator -->
+				<section class="section calculator">
+					<div class="calculator-content">
+						<!-- TODO -->
+					</div>
+					<button type="reset" class="reset">Reset</button>
+				</section>
 			</main>
 
+			<!-- Footer -->
 			<div class="attribution">
 				Challenge by
 				<a
@@ -95,6 +127,6 @@
   Reset -->
 
 		<!-- JavaScript -->
-		<script src="./dist/js/script.js" type="module"></script>
+		<script src="./dist/js/script.js"></script>
 	</body>
 </html>
