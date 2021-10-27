@@ -1,0 +1,82 @@
+/** Font Import **/
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap");
+
+/** Custom Properties **/
+:root {
+	--ff-base: "Space Mono", "MonoLisa", Arial, Helvetica, sans-serif;
+
+	--clr-primary: hsl(172, 67%, 45%);
+	--clr-neutral-600: hsl(183, 100%, 15%);
+	--clr-neutral-500: hsl(186, 14%, 43%);
+	--clr-neutral-400: hsl(184, 14%, 56%);
+	--clr-neutral-300: hsl(185, 41%, 84%);
+	--clr-neutral-200: hsl(189, 41%, 97%);
+	--clr-neutral-100: hsl(0, 0%, 100%);
+}
+
+/** Reset **/
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+html {
+	font-size: 100%;
+	scroll-behavior: smooth;
+}
+
+body,
+article,
+div,
+aside,
+article,
+section,
+span,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+dd,
+dt,
+button {
+	margin: 0;
+}
+
+img {
+	display: block;
+	max-width: 100%;
+	height: auto;
+}
+
+input,
+label,
+textarea,
+select,
+button,
+optgroup {
+	font: inherit;
+}
+
+/** Base Styling **/
+body {
+	font-family: var(--ff-base);
+	font-size: 1rem;
+	font-weight: 400;
+	line-height: 1.5;
+	background-color: var(--clr-neutral-300, #fff);
+	color: #000;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: 700;
+	line-height: 1.1;
+}

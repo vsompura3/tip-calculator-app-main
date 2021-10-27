@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<!-- displays site properly based on user's device -->
+
+		<link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png" />
+
+		<!-- linking stylesheet -->
+		<link rel="stylesheet" href="./dist/css/style.css" />
+
+		<title>Frontend Mentor | Tip calculator app</title>
+
+		<!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+		<style>
+			.attribution {
+				font-size: 11px;
+				text-align: center;
+			}
+			.attribution a {
+				color: hsl(228, 45%, 44%);
+			}
+		</style>
+	</head>
+	<body>
+		<!-- Container -->
+		<div class="container">
+			<header class="header">
+				<img src="./images/logo.svg" alt="logo" class="logo" />
+			</header>
+			<main class="app">
+				<div class="bill-section">
+					<label for="bill-amount">Bill</label>
+					<input type="number" name="bill-amount" id="bill-amount" required placeholder="0" />
+					<img src="./images/icon-dollar.svg" alt="dollar-sign" class="bill-sign" />
+				</div>
+				<div class="tip-section">
+					<p>Select Tip %</p>
+					<div class="tips">
+						<button type="button" class="tip" data-tip="5">5%</button>
+						<button type="button" class="tip" data-tip="10">10%</button>
+						<button type="button" class="tip" data-tip="15">15%</button>
+						<button type="button" class="tip" data-tip="20">20%</button>
+						<button type="button" class="tip" data-tip="50">50%</button>
+						<input type="number" name="custom-tip" id="custom-tip" placeholder="Custom" />
+					</div>
+				</div>
+				<div class="people-section">
+					<div class="people">
+						<label for="number-of-people">Number of People</label>
+						<p class="zero">Can't be zero</p>
+					</div>
+					<input
+						type="number"
+						name="number-of-people"
+						id="number-of-people"
+						required
+						placeholder="0"
+					/>
+				</div>
+				<div class="calculator-section">Calculator</div>
+			</main>
+
+			<div class="attribution">
+				Challenge by
+				<a
+					href="https://www.frontendmentor.io?ref=challenge"
+					target="_blank"
+					rel="noreferrer noopener"
+					>Frontend Mentor</a
+				>. Coded by <a href="https://vaibhavsompura.netlify.app">Vaibhav Sompura</a>.
+			</div>
+		</div>
+
+		<!-- 
+  Bill
+
+  Select Tip %
+  5%
+  10%
+  15%
+  25%
+  50%
+  Custom
+
+  Number of People
+
+  Tip Amount
+  / person
+
+  Total
+  / person
+
+  Reset -->
+
+		<!-- JavaScript -->
+		<script src="./dist/js/script.js" type="module"></script>
+	</body>
+</html>
