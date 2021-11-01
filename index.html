@@ -35,9 +35,53 @@
 			<main class="main app">
 				<!-- Input Customization -->
 				<section class="input">
-					<div class="bill-container">Bill</div>
-					<div class="tip-container">Tip</div>
-					<div class="people-container">People</div>
+					<div class="bill bill-container">
+						<label for="bill-amount" class="bill__label label">Bill</label>
+						<div class="bill__inputgroup inputgroup">
+							<input
+								type="number"
+								name="bill-amount"
+								id="bill-amount"
+								class="bill__input inputfield"
+								placeholder="0"
+								required
+							/>
+							<img src="./images/icon-dollar.svg" alt="dollar-sign" class="bill__sign" />
+						</div>
+					</div>
+
+					<div class="tip tip-container">
+						<label for="tip-amount" class="tip__label label">Select Tip %</label>
+						<div class="tip__group">
+							<button type="button" data-tip="5">5%</button>
+							<button type="button" data-tip="10">10%</button>
+							<button type="button" data-tip="15" data-active="true">15%</button>
+							<button type="button" data-tip="25">25%</button>
+							<button type="button" data-tip="50">50%</button>
+							<input
+								type="number"
+								name="custom-tip"
+								id="custom-tip"
+								class="inputfield"
+								placeholder="Custom"
+							/>
+						</div>
+					</div>
+
+					<div class="people people-container">
+						<label for="num-of-people" class="people__label label">Number of People</label>
+						<div class="people__inputgroup inputgroup">
+							<input
+								type="number"
+								name="num-of-people"
+								id="num-of-people"
+								class="people__input inputfield"
+								placeholder="0"
+								required
+							/>
+							<img src="./images/icon-person.svg" alt="person-sign" class="people-sign" />
+						</div>
+					</div>
 				</section>
 				<!-- Output Calculator -->
 				<section class="output">
