@@ -114,6 +114,10 @@ h6 {
 	color: var(--clr-neutral-100);
 	padding: 2em;
 	border-radius: 1em;
+	display: flex;
+	gap: 3em;
+	flex-direction: column;
+	justify-content: space-between;
 }
 
 .bill-container,
@@ -200,6 +204,46 @@ h6 {
 	width: 100%;
 	flex: 1 0 calc(var(--flex-basis) - var(--flex-gap));
 	text-align: center;
+}
+
+.reset-container button {
+	width: 100%;
+	padding: 0.5em;
+	background-color: var(--clr-primary);
+	color: var(--clr-neutral-600);
+	border: none;
+	border-radius: 3px;
+	letter-spacing: 2px;
+	font-weight: 700;
+	text-transform: uppercase;
+}
+
+.calculated-tip {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.tip-desc {
+	font-weight: 700;
+	display: flex;
+	flex-direction: column;
+	gap: 0.5em;
+}
+
+.tip-desc p {
+	font-size: 1.125rem;
+	line-height: 1;
+}
+
+.tip-desc span {
+	line-height: 1;
+	font-size: 1rem;
+	color: var(--clr-neutral-400);
+}
+
+.tip-per-person {
+	font-size: 3rem;
 }
 
 /* Viewport less than 45em or 720px */
