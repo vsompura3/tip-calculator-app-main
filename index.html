@@ -28,81 +28,36 @@
 		<div class="container">
 			<!-- Header -->
 			<header class="header">
-				<img src="./images/logo.svg" alt="logo" class="logo" />
+				<img src="./images/logo.svg" alt="splitter-logo" class="header__logo" />
 			</header>
 
-			<!-- App -->
-			<main class="app">
-				<!-- bill -->
-				<section class="section bill">
-					<label for="bill-amount" class="form__label bill__label">
-						<p>Bill</p>
-						<span>can't be zero</span>
-					</label>
-					<div class="form bill__form">
-						<input
-							type="number"
-							name="bill-amount"
-							id="bill-amount"
-							class="bill__input form__input"
-							placeholder="0"
-							required
-						/>
-						<img src="./images/icon-dollar.svg" alt="dollar-sign" class="form__img bill-sign" />
-					</div>
+			<!-- Main -->
+			<main class="main app">
+				<!-- Input Customization -->
+				<section class="input">
+					<div class="bill-container">Bill</div>
+					<div class="tip-container">Tip</div>
+					<div class="people-container">People</div>
 				</section>
-
-				<!-- tip -->
-				<section class="section tip">
-					<p class="form__label">Select Tip %</p>
-					<div class="tips">
-						<button type="button" class="btn tip-btn" data-tip="5">5%</button>
-						<button type="button" class="btn tip-btn" data-tip="10">10%</button>
-						<button type="button" class="btn tip-btn" data-tip="15">15%</button>
-						<button type="button" class="btn tip-btn" data-tip="25">25%</button>
-						<button type="button" class="btn tip-btn" data-tip="50">50%</button>
-						<input type="number" name="custom-tip" id="custom-tip" placeholder="Custom" />
-					</div>
-				</section>
-
-				<!-- people -->
-				<section class="section people">
-					<label for="people-amount" class="form__label people__label">
-						<p>Number of People</p>
-						<span>can't be zero</span>
-					</label>
-					<div class="form people__form">
-						<input
-							type="number"
-							name="people-number"
-							id="people-number"
-							class="people__input form__input"
-							placeholder="0"
-							required
-						/>
-						<img src="./images/icon-person.svg" alt="person-sign" class="form__img people-sign" />
-					</div>
-				</section>
-
-				<!-- calculator -->
-				<section class="section calculator">
-					<div class="calculator-content">
-						<!-- TODO -->
-					</div>
-					<button type="reset" class="reset">Reset</button>
+				<!-- Output Calculator -->
+				<section class="output">
+					<div class="calculation-container">Calulate</div>
+					<div class="reset-container">Reset</div>
 				</section>
 			</main>
 
 			<!-- Footer -->
-			<div class="attribution">
-				Challenge by
-				<a
-					href="https://www.frontendmentor.io?ref=challenge"
-					target="_blank"
-					rel="noreferrer noopener"
-					>Frontend Mentor</a
-				>. Coded by <a href="https://vaibhavsompura.netlify.app">Vaibhav Sompura</a>.
-			</div>
+			<footer>
+				<div class="attribution">
+					Challenge by
+					<a
+						href="https://www.frontendmentor.io?ref=challenge"
+						target="_blank"
+						rel="noreferrer noopener"
+						>Frontend Mentor</a
+					>. Coded by <a href="https://vaibhavsompura.netlify.app">Vaibhav Sompura</a>.
+				</div>
+			</footer>
 		</div>
 
 		<!-- 

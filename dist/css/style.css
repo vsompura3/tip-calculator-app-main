@@ -83,96 +83,28 @@ h6 {
 
 /* Header */
 .header {
-	padding: 3em;
-	display: flex;
-	justify-content: center;
-	align-items: center;
+	padding: 5em;
 }
 
-.header .logo {
+.header__logo {
 	margin: 0 auto;
 }
 
-/* App */
+/* Main */
 .app {
+	max-width: 55em;
+	width: 100%;
+	margin: 0 auto;
+	padding: 2em;
 	background-color: var(--clr-neutral-100);
-	padding: 2em 1.5em;
+	border-radius: 1rem;
 	display: grid;
-	grid-template-columns: 1fr;
-	gap: 1.5em;
+	grid-template-columns: 1fr 1fr;
+	gap: 2em;
 }
 
-.bill,
-.tip {
-	display: flex;
-	flex-direction: column;
-	gap: 0.75em;
-}
-
-.form__label {
-	color: var(--clr-neutral-500);
-	font-weight: 700;
-}
-
-.form {
-	position: relative;
-}
-
-.form__input {
-	background-color: var(--clr-neutral-200, orangered);
-	padding: 0.5em;
-	width: 100%;
-	border: none;
-	border-radius: 3px;
-	text-align: right;
-}
-
-.form__input:focus {
-	outline: 2px solid var(--clr-primary);
-}
-
-.form__img {
-	position: absolute;
-	top: 50%;
-	left: 10px;
-	transform: translateY(-50%);
-}
-
-.form__label {
-	display: flex;
-	justify-content: space-between;
-}
-
-.form__label span {
-	display: none;
-	font-size: 1rem;
-}
-
-.tips {
-	display: flex;
-	--gap: 0.5em;
-	gap: var(--gap);
-	flex-wrap: wrap;
-}
-
-.tips {
-	font-weight: 700;
-}
-
-.tips .btn {
-	flex: 0 0 calc(50% - var(--gap));
-	background-color: var(--clr-neutral-600);
-	color: var(--clr-neutral-100);
-	border: none;
-	border-radius: 3px;
-	padding: 0.5em;
-}
-
-.tips #custom-tip {
-	width: 100%;
-	flex: 0 0 calc(50% - var(--gap));
-	text-align: center;
-	background-color: var(--clr-neutral-200);
-	border: none;
-	border-radius: 3px;
+@media screen and (max-width: 45em) {
+	.app {
+		grid-template-columns: 1fr;
+	}
 }
