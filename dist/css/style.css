@@ -216,34 +216,47 @@ h6 {
 	letter-spacing: 2px;
 	font-weight: 700;
 	text-transform: uppercase;
+	cursor: pointer;
 }
 
-.calculated-tip {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-}
-
-.tip-desc {
-	font-weight: 700;
+.calculation-container {
 	display: flex;
 	flex-direction: column;
 	gap: 0.5em;
 }
 
-.tip-desc p {
+.calculated-tip,
+.calculated-total {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.tip-desc,
+.total-desc {
+	font-weight: 700;
+	display: flex;
+	flex-direction: column;
+	gap: 0.25em;
+}
+
+.tip-desc p,
+.total-desc p {
 	font-size: 1.125rem;
 	line-height: 1;
 }
 
-.tip-desc span {
+.tip-desc span,
+.total-desc span {
 	line-height: 1;
 	font-size: 1rem;
 	color: var(--clr-neutral-400);
 }
 
-.tip-per-person {
+.tip-per-person,
+.total-per-person {
 	font-size: 3rem;
+	color: var(--clr-primary);
 }
 
 /* Viewport less than 45em or 720px */
@@ -260,5 +273,21 @@ h6 {
 
 	.tip__group {
 		--flex-basis: 50%;
+	}
+
+	.tip-desc p,
+	.total-desc p {
+		font-size: 1rem;
+	}
+
+	.tip-desc span,
+	.total-desc span {
+		font-size: 0.875rem;
+	}
+
+	.tip-per-person,
+	.total-per-person {
+		font-size: 2.5rem;
+		/* margin-left: 1em; */
 	}
 }
