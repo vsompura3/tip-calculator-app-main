@@ -23,104 +23,75 @@
 			}
 		</style>
 	</head>
-	<body>
-		<!-- Container -->
-		<div class="container">
-			<!-- Header -->
-			<header class="header">
-				<img src="./images/logo.svg" alt="splitter-logo" class="header__logo" />
+	<body class="grid">
+		<!-- Main -->
+		<main class="main grid">
+			<!-- App Header -->
+			<header class="header flex">
+				<img src="./images/logo.svg" alt="Splitter Logo" aria-label="Splitter" />
 			</header>
-
-			<!-- Main -->
-			<main class="main app">
-				<!-- Input Customization -->
-				<section class="input">
-					<div class="bill bill-container">
-						<label for="bill-amount" class="bill__label label">Bill</label>
-						<div class="bill__inputgroup inputgroup">
-							<input
-								type="number"
-								name="bill-amount"
-								id="bill-amount"
-								class="bill__input inputfield"
-								placeholder="0"
-								required
-							/>
-							<img src="./images/icon-dollar.svg" alt="dollar-sign" class="bill__sign" />
-						</div>
+			<!-- App Body -->
+			<section class="app grid" role="application">
+				<!-- Left  -->
+				<div class="process grid">
+					<div class="flex">
+						<label for="bill-amount">Bill</label>
+						<input
+							class="input"
+							type="number"
+							name="bill-amount"
+							id="amount"
+							placeholder="0"
+							required
+						/>
 					</div>
-
-					<div class="tip tip-container">
-						<label for="tip-amount" class="tip__label label">Select Tip %</label>
-						<div class="tip__group">
-							<button type="button" data-tip="5">5%</button>
-							<button type="button" data-tip="10">10%</button>
-							<button type="button" data-tip="15" data-active="true">15%</button>
-							<button type="button" data-tip="25">25%</button>
-							<button type="button" data-tip="50">50%</button>
-							<input
-								type="number"
-								name="custom-tip"
-								id="custom-tip"
-								class="inputfield"
-								placeholder="Custom"
-							/>
-						</div>
+					<div class="tip-categories grid">
+						<p>Select Tip %</p>
+						<input type="radio" name="tip-percent" id="5" value="5" />
+						<label for="5"><span>5%</span></label>
+						<input type="radio" name="tip-percent" id="10" value="10" />
+						<label for="10"><span>10%</span></label>
+						<input type="radio" name="tip-percent" id="15" value="15" />
+						<label for="15"><span>15%</span></label>
+						<input type="radio" name="tip-percent" id="25" value="25" />
+						<label for="25"><span>25%</span></label>
+						<input type="radio" name="tip-percent" id="50" value="50" />
+						<label for="50"><span>50%</span></label>
+						<input
+							class="input"
+							type="number"
+							name="tip-percent"
+							id="custom"
+							placeholder="Custom"
+						/>
 					</div>
-
-					<div class="people people-container">
-						<label for="num-of-people" class="people__label label">Number of People</label>
-						<div class="people__inputgroup inputgroup">
-							<input
-								type="number"
-								name="num-of-people"
-								id="num-of-people"
-								class="people__input inputfield"
-								placeholder="0"
-								required
-							/>
-							<img src="./images/icon-person.svg" alt="person-sign" class="people-sign" />
-						</div>
+					<div class="flex">
+						<label for="num-of-people">Num of People</label>
+						<input
+							class="input"
+							type="number"
+							name="num-of-people"
+							id="num-of-people"
+							placeholder="0"
+						/>
 					</div>
-				</section>
-				<!-- Output Calculator -->
-				<section class="output">
-					<div class="calculation-container">
-						<div class="calculated-tip">
-							<div class="tip-desc">
-								<p>Tip Amount</p>
-								<span>/person</span>
-							</div>
-							<p class="tip-per-person">$0.00</p>
-						</div>
-
-						<div class="calculated-total">
-							<div class="total-desc">
-								<p>Total</p>
-								<span>/person</span>
-							</div>
-							<p class="total-per-person">$0.00</p>
-						</div>
-					</div>
-					<div class="reset-container">
-						<button type="reset" id="reset">Reset</button>
-					</div>
-				</section>
-			</main>
-
-			<!-- Footer -->
-			<footer>
-				<div class="attribution">
-					Challenge by
-					<a
-						href="https://www.frontendmentor.io?ref=challenge"
-						target="_blank"
-						rel="noreferrer noopener"
-						>Frontend Mentor</a
-					>. Coded by <a href="https://vaibhavsompura.netlify.app">Vaibhav Sompura</a>.
 				</div>
-			</footer>
-		</div>
+				<!-- Right -->
+				<div class="calculator">Right Side</div>
+			</section>
+		</main>
+
+		<!-- <footer>
+			<div class="attribution">
+				Challenge by
+				<a
+					href="https://www.frontendmentor.io?ref=challenge"
+					target="_blank"
+					rel="noreferrer noopener"
+					>Frontend Mentor</a
+				>. Coded by <a href="https://vaibhavsompura.netlify.app">Vaibhav Sompura</a>.
+			</div>
+		</footer> -->
 
 		<!-- 
   Bill
