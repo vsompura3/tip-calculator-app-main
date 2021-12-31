@@ -1,94 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<!-- displays site properly based on user's device -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
 
-		<link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
 
-		<!-- linking stylesheet -->
-		<link rel="stylesheet" href="./dist/css/style.css" />
+    <!-- linking stylesheet -->
+    <link rel="stylesheet" href="./dist/css/style.css" />
 
-		<title>Frontend Mentor | Tip calculator app</title>
-	</head>
-	<body>
-		<!-- Container -->
-		<div class="container">
-			<!-- Header -->
-			<header class="header">
-				<img src="./images/logo.svg" alt="Splitter Logo" />
-			</header>
-			<!-- Main -->
-			<main class="main">
-				<!-- Tip Calculation Process/form -->
-				<form class="process form">
-					<div class="form__group">
-						<label for="bill-input">Bill</label>
-						<input type="number" name="bill-amount" id="bill-input" placeholder="0" required />
-					</div>
-					<div class="form__group grid">
-						<p>Select Tip %</p>
+    <title>Frontend Mentor | Tip calculator app</title>
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header flex">
+      <img src="./images/logo.svg" alt="Splitter Logo" />
+    </header>
 
-						<input type="radio" name="tip-percent" id="5" value="5" />
-						<label for="5">5%</label>
+    <!-- Main -->
+    <main class="app container grid">
+      <div class="process grid">
+        <div class="flex flex-col">
+          <label for="bill-input">Bill</label>
+          <input
+            type="number"
+            class="input fs-input"
+            id="bill-input"
+            placeholder="0"
+            required
+          />
+        </div>
+        <div class="flex flex-col">
+          <label for="custom-tip">Select Tip %</label>
+          <div class="grid tip-grid">
+            <input type="radio" name="tip-radio" id="5" value="5" />
+            <label for="5" class="fs-input">5%</label>
+            <input type="radio" name="tip-radio" id="10" value="10" />
+            <label for="10" class="fs-input">10%</label>
+            <input type="radio" name="tip-radio" id="15" value="15" checked />
+            <label for="15" class="fs-input">15%</label>
+            <input type="radio" name="tip-radio" id="25" value="25" />
+            <label for="25" class="fs-input">25%</label>
+            <input type="radio" name="tip-radio" id="50" value="50" />
+            <label for="50" class="fs-input">50%</label>
+            <input
+              type="number"
+              class="input fs-input"
+              name="tip-radio"
+              id="custom-tip"
+              placeholder="Custom"
+            />
+          </div>
+        </div>
+        <div class="flex flex-col">
+          <div class="flex">
+            <label for="people-input">Number of People</label>
+            <span class="warning">Can't be zero</span>
+          </div>
+          <input
+            type="number"
+            class="input fs-input"
+            id="people-input"
+            placeholder="1"
+            required
+          />
+        </div>
+      </div>
 
-						<input type="radio" name="tip-percent" id="10" value="10" />
-						<label for="10">10%</label>
+      <div class="result flow">
+        <div class="result-row flex">
+          <div class="tip">
+            <span>Tip Amount</span>
+            <span>/ person</span>
+          </div>
+          <p id="display-tip">$0.00</p>
+        </div>
+        <div class="result-row flex">
+          <div class="total">
+            <span>Total</span>
+            <span>/ person</span>
+          </div>
+          <p id="display-total">$0.00</p>
+        </div>
+        <button type="reset">Reset</button>
+      </div>
+    </main>
 
-						<input type="radio" name="tip-percent" id="15" value="15" checked />
-						<label for="15">15%</label>
+    <footer>
+      <p>
+        Coded by
+        <a
+          href="https://vaibhavsompura.netlify.app"
+          target="_blank"
+          rel="noopener noreferrer"
+          >Vaibhav Sompura</a
+        >
+      </p>
+    </footer>
 
-						<input type="radio" name="tip-percent" id="25" value="25" />
-						<label for="25">25%</label>
-
-						<input type="radio" name="tip-percent" id="50" value="50" />
-						<label for="50">50%</label>
-
-						<input type="number" name="tip-percent" id="custom-input" placeholder="Custom" />
-					</div>
-					<div class="form__group">
-						<label for="people-input">
-							<span>Number of People</span>
-							<span class="warning hide">Can't be zero</span>
-						</label>
-						<input type="number" name="num-of-people" id="people-input" placeholder="0" required />
-					</div>
-				</form>
-				<!-- Tip Calculated Output -->
-				<div class="result">
-					<div class="result__row">
-						<div class="result__tip">
-							<span>Tip Amount</span>
-							<span>/ person</span>
-						</div>
-						<p class="result__tip-per-person">$0.00</p>
-					</div>
-					<div class="result__row">
-						<div class="result__total">
-							<span>Total</span>
-							<span>/ person</span>
-						</div>
-						<p class="result__total-per-person">$0.00</p>
-					</div>
-					<button type="reset">Reset</button>
-				</div>
-			</main>
-			<!-- Footer -->
-			<footer>
-				<div class="attribution">
-					Challenge by
-					<a
-						href="https://www.frontendmentor.io?ref=challenge"
-						target="_blank"
-						rel="noreferrer noopener"
-						>Frontend Mentor</a
-					>. Coded by <a href="https://vaibhavsompura.netlify.app">Vaibhav Sompura</a>.
-				</div>
-			</footer>
-		</div>
-
-		<!-- JavaScript -->
-		<script src="./dist/js/script.js"></script>
-	</body>
+    <!-- JS -->
+    <script src="./dist/js/script.js"></script>
+  </body>
 </html>
