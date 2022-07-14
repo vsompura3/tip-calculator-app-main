@@ -1,0 +1,29 @@
+{
+  "name": "tip-calculator-app-main",
+  "version": "1.0.0",
+  "description": "A frontend mentor project",
+  "main": "index.js",
+  "scripts": {
+    "start": "vite",
+    "dev": "vite",
+    "build": "vite build --base=./",
+    "serve": "vite preview",
+    "deploy": "npm run build && gh-pages -d dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vsompura3/tip-calculator-app-main.git"
+  },
+  "author": "Vaibhav Sompura",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vsompura3/tip-calculator-app-main/issues"
+  },
+  "homepage": "https://github.com/vsompura3/tip-calculator-app-main#readme",
+  "devDependencies": {
+    "eslint": "^8.19.0",
+    "gh-pages": "^4.0.0",
+    "postcss-preset-env": "^7.7.2",
+    "vite": "^3.0.0"
+  }
+}
