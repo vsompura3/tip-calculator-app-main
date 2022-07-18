@@ -1,49 +1,93 @@
-/** Font Import **/
 @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;600;700&display=swap');
 
-/** Custom Properties **/
 :root {
-  --ff-base: 'Space Mono', 'MonoLisa', Arial, Helvetica, sans-serif;
+  /* colors */
+  --brand: hsl(172 67% 45%);
+  --warning: rgb(220 73 53);
+  --surface: hsl(183 100% 15%);
+  --surface-2: rgb(162, 215, 220);
+  --text: hsl(186 14% 43%);
+  --text-2: hsl(184 14% 56%);
+  --bg-input: hsl(189 41% 97%);
+  --white: hsl(0 0% 100%);
 
-  --clr-primary: hsl(172, 67%, 45%);
-  --clr-hover: rgb(159, 232, 223);
+  /* fonts */
+  --ff-sans: 'Space Mono', system-ui, sans-serif;
+  --normal: 400;
+  --semibold: 600;
+  --bold: 700;
 
-  --clr-neutral-100: hsl(0, 0%, 100%);
-  --clr-neutral-200: hsl(180, 29%, 93%);
-  --clr-neutral-300: hsl(185, 41%, 84%);
-  --clr-neutral-400: hsl(184, 14%, 56%);
-  --clr-neutral-500: hsl(186, 14%, 43%);
-  --clr-neutral-600: hsl(183, 100%, 15%);
-
-  --fs-500: 1.5rem;
+  /* spacing */
+  --space-xxs: 0.25rem;
+  --space-xs: 0.5rem;
+  --space-sm: 0.75rem;
+  --space-base: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 1.875rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
 }
 
-/* ------------------- */
-/* Reset               */
-/* ------------------- */
-
-/* https://piccalil.li/blog/a-modern-css-reset/ */
-
-/* Box sizing */
+/* Box sizing rules */
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
 
-/* Reset margins */
+/* set the default html size to full page */
+html {
+  inline-size: 100%;
+  block-size: 100%;
+}
+
+/* Remove default margin */
 body,
 h1,
 h2,
 h3,
 h4,
-h5,
 p,
 figure,
-picture {
+blockquote,
+dl,
+dd {
   margin: 0;
 }
 
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-inline-size: 100%;
+  min-block-size: 100%;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+
+  font-family: var(--ff-sans);
+  font-size: 1rem;
+  font-weight: var(--normal);
+  background-color: var(--surface-2);
+  color: var(--text);
+  padding-block: 5ch;
+
+  @media (width > 480px) {
+    display: grid;
+    place-content: center;
+    padding-block: 2ch;
+  }
+}
+
+/* Set minimum line-height for heading elements */
 h1,
 h2,
 h3,
@@ -51,27 +95,21 @@ h4,
 h5,
 h6 {
   line-height: 1.15;
-  font-weight: 400;
 }
 
-/* set up the body */
-body {
-  font-family: var(--ff-base);
-  font-size: var(--fs-300);
-  font-weight: 400;
-  line-height: 1.5;
-  min-height: 100vh;
-  overflow-x: hidden;
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
 }
 
-/* make images easier to work with */
+/* Make images easier to work with */
 img,
 picture {
-  max-width: 100%;
+  max-inline-size: 100%;
   display: block;
 }
 
-/* make form elements easier to work with */
+/* Inherit fonts for inputs and buttons */
 input,
 button,
 textarea,
@@ -79,38 +117,38 @@ select {
   font: inherit;
 }
 
-/* Screen readers only */
+/* To hide the spin box on input */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  /* display: none; <- Crashes Chrome on hover */
+  -webkit-appearance: none;
+  margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+input[type='number'] {
+  -moz-appearance: textfield; /* Firefox */
+  font-variant-numeric: tabular-nums;
+}
+
+/* Content thats not visible but read by screen-readers */
 .sr-only {
   position: absolute;
-  width: 1px;
-  height: 1px;
+  inline-size: 1px;
+  block-size: 1px;
   padding: 0;
   margin: -1px;
   overflow: hidden;
   clip: rect(0, 0, 0, 0);
-  white-space: nowrap; /* added line */
-  border: 0;
+  white-space: nowrap;
+  border-width: 0;
 }
 
-/** To Remove the number dial from input[type='number'] */
-/* Chrome, Safari, Edge, Opera */
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
-input::placeholder {
-  color: var(--clr-neutral-500);
-}
-
-/* Firefox */
-input[type='number'] {
-  -moz-appearance: textfield;
-}
-
-/* remove animations for people who've turned them off */
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
 @media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
   *,
   *::before,
   *::after {
@@ -121,234 +159,242 @@ input[type='number'] {
   }
 }
 
-/* ------------------- */
-/* Utilities           */
-/* ------------------- */
-
-.container {
-  width: 90%;
-  max-width: 60em;
-  margin-inline: auto;
-}
-
-.flex {
-  display: flex;
-  gap: var(--gap, 0.5rem);
-}
-.flex-col {
-  flex-direction: column;
-  --gap: 0.5rem;
-}
-
-.grid {
+.calculator-layout {
   display: grid;
-  gap: var(--gap, 0.5rem);
-}
+  gap: calc(var(--space-xl) + 0.25rem);
 
-.flow > *:where(:not(:first-child)) {
-  margin-top: var(--flow-spacer, 1rem);
-}
-
-.input {
-  width: 100%;
-  border-radius: 4px;
-  border: 0;
-}
-
-.fs-input {
-  font-size: var(--fs-500);
-  padding: 0.25rem 0.5rem;
-  text-align: right;
-}
-
-.warning {
-  color: red;
-  font-weight: 700;
-  display: none;
-}
-
-/* ------------------- */
-/* General             */
-/* ------------------- */
-
-.header {
-  justify-content: center;
-  padding-block: 2em;
-}
-
-.app {
-  --gap: 2rem;
-  padding: 1.5em;
-  border-radius: 12px;
-  box-shadow: 0rem 1rem 3rem rgb(0 0 0 / 0.22);
-}
-
-.process {
-  --gap: 2rem;
-}
-
-.process .tip-grid {
-  --gap: 0.5rem;
-  grid-template-columns: repeat(2, 1fr);
-}
-
-.process label {
-  color: var(--clr-neutral-500);
-  font-weight: 600;
-}
-
-.tip-grid label {
-  cursor: pointer;
-  text-align: center;
-  background-color: var(--clr-neutral-600);
-  color: var(--clr-neutral-100);
-  border-radius: 4px;
-  font-weight: 600;
-}
-
-.tip-grid label:hover,
-.tip-grid label:focus {
-  background-color: var(--clr-hover);
-  color: var(--clr-neutral-600);
-}
-
-input[type='radio'] {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap; /* added line */
-  border: 0;
-}
-
-input[type='radio']:focus + label {
-  outline: 2px solid var(--clr-primary);
-  outline-offset: 2px;
-}
-
-input[type='radio']:checked + label {
-  background-color: var(--clr-primary);
-  color: var(--clr-neutral-600);
-}
-
-input#bill-input,
-input#people-input,
-input#custom-tip {
-  background-color: var(--clr-neutral-200);
-  background-position: 5% center;
-  background-repeat: no-repeat;
-  background-size: 0.75rem;
-  font-weight: 700;
-  outline-color: var(--clr-primary);
-  color: var(--clr-neutral-600);
-}
-
-input#bill-input {
-  background-image: url('../../images/icon-dollar.svg');
-}
-
-input#people-input {
-  background-image: url('../../images/icon-person.svg');
-}
-
-input#custom-tip {
-  text-align: center;
-  border-radius: 4px;
-}
-
-.result {
-  background-color: var(--clr-neutral-600);
-  color: var(--clr-neutral-100);
-  border-radius: 8px;
-  padding: 1em;
-  display: flex;
-  flex-direction: column;
-  gap: 1em;
-}
-
-.result-row {
-  align-items: center;
-  justify-content: space-between;
-}
-
-.result-row span {
-  display: block;
-  font-size: 0.875rem;
-}
-
-.result-row span:last-child {
-  color: var(--clr-neutral-300);
-}
-
-.result-row p {
-  font-size: clamp(2.25rem, 5vw, 3rem);
-  line-height: 1;
-  color: var(--clr-primary);
-  max-width: 250px;
-  overflow-x: scroll;
-}
-
-.result button[type='reset'] {
-  cursor: pointer;
-  margin-top: 3rem;
-  border: 0;
-  background-color: var(--clr-primary);
-  color: var(--clr-neutral-600);
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  font-weight: 700;
-  padding-block: 0.5rem;
-  border-radius: 4px;
-  transition: transform 0.2s ease;
-}
-
-.result button[type='reset']:hover {
-  transform: translateY(-0.15rem);
-}
-
-footer {
-  text-align: center;
-}
-
-@media (min-width: 45em) {
-  body {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 3em;
+  @media (width > 480px) {
+    place-items: center;
   }
 
-  .app {
-    padding: 2em;
-    grid-template-columns: repeat(2, 1fr);
+  & > header {
+    display: grid;
+    place-content: center;
   }
 
-  .process .tip-grid {
-    grid-template-columns: repeat(3, 1fr);
+  & > section {
+    background-color: var(--white);
+    border-radius: 2ch;
+
+    max-inline-size: 50ch;
+    display: grid;
+    gap: var(--space-lg);
+    padding: var(--space-xl);
+
+    @media (width >= 920px) {
+      grid-template-columns: repeat(2, 1fr);
+      max-inline-size: 57.5em;
+    }
+  }
+}
+
+.calculation-form {
+  display: grid;
+  gap: calc(var(--space-xl) + 0.25rem);
+
+  @media (width >= 920px) {
+    padding: var(--space-base);
   }
 
-  .process .tip-grid > * {
-    padding-block: 0.25em;
+  & label,
+  & legend {
+    font-size: 1.125rem;
   }
 
-  input#bill-input,
-  input#people-input {
-    padding-block: 0.25em;
-  }
-
-  .result {
-    padding: 2em;
-  }
-
-  .result-row span {
-    font-size: 1rem;
-  }
-
-  .result button[type='reset'] {
-    margin-top: auto;
+  & input[type='number'] {
+    text-align: end;
     font-size: 1.5rem;
+    font-weight: var(--bold);
+    line-height: 1.5;
+
+    background-color: var(--bg-input);
+    color: var(--surface);
+
+    padding-inline: var(--space-base);
+    padding-block: var(--space-xxs);
+    border-radius: 0.35ch;
+    border: none;
+    outline-offset: 2px;
+
+    &::placeholder {
+      color: var(--text);
+    }
+
+    &:focus {
+      outline: 2px solid var(--brand);
+    }
+  }
+
+  & :is(label, legend) {
+    font-weight: var(--semibold);
+  }
+
+  & > .form-group {
+    display: grid;
+    gap: var(--space-xs);
+
+    & > input[type='number'] {
+      background-repeat: no-repeat;
+      background-position: 10px center;
+    }
+
+    &:first-of-type {
+      & > input[type='number'] {
+        background-image: url('/images/icon-dollar.svg');
+      }
+    }
+
+    &:last-of-type {
+      grid-template-columns: repeat(2, 1fr);
+      line-height: 1.35;
+
+      & > span {
+        justify-self: end;
+        font-weight: var(--semibold);
+        color: var(--warning);
+      }
+
+      & > input[type='number'] {
+        inline-size: 100%;
+        grid-column: 1/-1;
+        background-image: url('/images/icon-person.svg');
+      }
+    }
+  }
+
+  & > fieldset {
+    margin: 0;
+    padding: 0;
+    border: 0;
+
+    & > .form-group {
+      --repeat: 2;
+      display: grid;
+      gap: var(--space-base);
+      grid-template-columns: repeat(var(--repeat), 1fr);
+
+      @media (width >= 920px) {
+        --repeat: 3;
+      }
+
+      & > label {
+        cursor: pointer;
+        background-color: var(--surface);
+        color: var(--white);
+
+        text-align: center;
+        font-size: 1.5rem;
+        font-weight: var(--bold);
+        font-variant-numeric: tabular-nums;
+
+        padding-block: var(--space-xs);
+        border-radius: 0.35ch;
+      }
+    }
+
+    & legend {
+      grid-column: 1/-1;
+    }
+
+    /* custom-tip */
+    & input[type='number'] {
+      inline-size: 100%;
+      block-size: 100%;
+      outline-offset: -2px;
+    }
+
+    & input[type='radio'] {
+      position: absolute;
+      opacity: 0;
+    }
+  }
+}
+
+.calculated-output {
+  background-color: var(--surface);
+  border-radius: 1ch;
+  padding-inline: var(--space-md);
+  padding-block: var(--space-md);
+  color: var(--text-2);
+
+  display: grid;
+  gap: var(--space-xl);
+
+  @media (width >= 920px) {
+    padding-inline: calc(var(--space-xl));
+    padding-block: calc(var(--space-xl) + 0.5rem);
+
+    align-content: space-between;
+
+    & > button {
+      margin-top: auto;
+    }
+  }
+
+  & > div {
+    display: grid;
+    gap: 2.5ch;
+
+    & > .tip-details,
+    & > .total-details {
+      display: grid;
+      align-items: center;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2ch;
+      font-size: 0.875rem;
+
+      & > div {
+        align-self: end;
+      }
+
+      & > div > p:first-of-type {
+        color: var(--white);
+        font-size: 1.125rem;
+        font-weight: var(--semibold);
+        line-height: 1.1;
+      }
+
+      /*// ! handle scroll and overflow */
+      & > span {
+        font-size: 3rem;
+        font-weight: var(--bold);
+        font-variant-numeric: tabular-nums;
+        color: var(--brand);
+        line-height: 1.25;
+        text-align: end;
+      }
+    }
+  }
+
+  & > button {
+    cursor: pointer;
+    background-color: var(--brand);
+    color: var(--surface);
+    border: none;
+    border-radius: 0.25ch;
+    padding-block: var(--space-xs);
+
+    font-size: 1.5rem;
+    font-weight: var(--bold);
+    text-transform: uppercase;
+
+    outline-offset: 2px;
+
+    @media (prefers-reduced-motion: no-preference) {
+      transition: transform 150ms ease-out;
+    }
+
+    &:hover {
+      background-color: var(--surface-2);
+      transform: scale(1.01);
+    }
+
+    &:focus {
+      outline: 2px solid var(--brand);
+    }
+
+    &:active {
+      transform: scale(0.98);
+    }
   }
 }
