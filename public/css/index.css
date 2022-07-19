@@ -214,7 +214,8 @@ input[type='number'] {
     background-color: var(--bg-input);
     color: var(--surface);
 
-    padding-inline: var(--space-base);
+    padding-inline-end: var(--space-base);
+    padding-inline-start: var(--space-lg);
     padding-block: var(--space-xxs);
     border-radius: 0.35ch;
     border: none;
@@ -319,6 +320,7 @@ input[type='number'] {
       inline-size: 100%;
       block-size: 100%;
       outline-offset: -2px;
+      padding-inline-start: var(--space-base);
 
       @media (width >= 920px) {
         &::placeholder {
@@ -364,8 +366,9 @@ input[type='number'] {
       display: grid;
       align-items: center;
       grid-template-columns: 1fr 2fr;
-      gap: 2ch;
+      gap: 3ch;
       font-size: 0.875rem;
+      overflow: hidden;
 
       & > div {
         align-self: end;
@@ -380,13 +383,28 @@ input[type='number'] {
       }
 
       & > span {
+        user-select: none;
         font-size: 2.5rem;
         font-weight: var(--bold);
         font-variant-numeric: tabular-nums;
         color: var(--brand);
-        line-height: 1.1;
+        line-height: 1.15;
         text-align: end;
+
         overflow-x: auto;
+        overflow-y: hidden;
+
+        &::-webkit-scrollbar {
+          background-color: var(--surface);
+          inline-size: 4px; /* width of vertical scrollbar */
+          block-size: 4px; /* height of horizontal scrollbar ← You're missing this */
+          border: 1px solid var(--white);
+        }
+
+        &::-webkit-scrollbar-thumb:horizontal {
+          background-color: var(--white);
+          border-radius: 0.5ch;
+        }
 
         @media (width >= 920px) {
           font-size: 3rem;
