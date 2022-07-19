@@ -5,7 +5,7 @@
   --brand: hsl(172 67% 45%);
   --warning: rgb(220 73 53);
   --surface: hsl(183 100% 15%);
-  --surface-2: rgb(162, 215, 220);
+  --surface-2: rgb(173, 224, 228);
   --text: hsl(186 14% 43%);
   --text-2: hsl(184 14% 56%);
   --bg-input: hsl(189 41% 97%);
@@ -167,6 +167,10 @@ input[type='number'] {
     place-items: center;
   }
 
+  @media (width > 920px) {
+    gap: calc(var(--space-2xl) + 2rem);
+  }
+
   & > header {
     display: grid;
     place-content: center;
@@ -221,7 +225,8 @@ input[type='number'] {
     }
 
     &:focus {
-      outline: 2px solid var(--brand);
+      --outline-color: var(--brand);
+      outline: 2px solid var(--outline-color);
     }
   }
 
@@ -287,8 +292,21 @@ input[type='number'] {
         font-weight: var(--bold);
         font-variant-numeric: tabular-nums;
 
-        padding-block: var(--space-xs);
+        padding-block: var(--space-xxs);
         border-radius: 0.35ch;
+
+        &:focus-within {
+          --outline-color: var(--brand);
+          outline: 2px solid var(--outline-color);
+          outline-offset: 2px;
+          background-color: var(--brand);
+          color: var(--surface);
+        }
+
+        &:hover {
+          background-color: var(--surface-2);
+          color: var(--surface);
+        }
       }
     }
 
@@ -301,6 +319,12 @@ input[type='number'] {
       inline-size: 100%;
       block-size: 100%;
       outline-offset: -2px;
+
+      @media (width >= 920px) {
+        &::placeholder {
+          font-size: 1.35rem;
+        }
+      }
     }
 
     & input[type='radio'] {
@@ -339,7 +363,7 @@ input[type='number'] {
     & > .total-details {
       display: grid;
       align-items: center;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: 1fr 2fr;
       gap: 2ch;
       font-size: 0.875rem;
 
@@ -349,19 +373,24 @@ input[type='number'] {
 
       & > div > p:first-of-type {
         color: var(--white);
-        font-size: 1.125rem;
+        font-size: 1rem;
         font-weight: var(--semibold);
         line-height: 1.1;
+        margin-bottom: var(--space-xxs);
       }
 
-      /*// ! handle scroll and overflow */
       & > span {
-        font-size: 3rem;
+        font-size: 2.5rem;
         font-weight: var(--bold);
         font-variant-numeric: tabular-nums;
         color: var(--brand);
-        line-height: 1.25;
+        line-height: 1.1;
         text-align: end;
+        overflow-x: auto;
+
+        @media (width >= 920px) {
+          font-size: 3rem;
+        }
       }
     }
   }
@@ -390,11 +419,38 @@ input[type='number'] {
     }
 
     &:focus {
-      outline: 2px solid var(--brand);
+      --outline-color: var(--brand);
+      outline: 2px solid var(--outline-color);
     }
 
     &:active {
       transform: scale(0.98);
+    }
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+footer {
+  text-align: center;
+  padding-inline: var(--space-xl);
+  color: var(--surface);
+
+  & > div {
+    max-inline-size: 45ch;
+    margin-inline: auto;
+    padding-block: 5ch;
+  }
+
+  & a {
+    font-size: 1.125rem;
+    color: hsl(0 0% 0%);
+    font-weight: var(--bold);
+
+    &:hover {
+      color: var(--brand);
     }
   }
 }
